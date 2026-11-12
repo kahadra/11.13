@@ -1,13 +1,13 @@
 {
-  "checked_at": "2026-11-12T08:30:30+00:00",
+  "checked_at": "2026-11-12T08:53:07+00:00",
   "browser": "Microsoft Edge headless (DevTools protocol)",
   "viewport": [
     1280,
     720
   ],
-  "slides": 30,
+  "slides": 31,
   "main_slides": 26,
-  "appendix_slides": 4,
+  "appendix_slides": 5,
   "planned_seconds": 1140,
   "transition_buffer_seconds": 60,
   "hard_limit_seconds": 1200,
@@ -69,5 +69,5 @@
   },
   "script_in_sync": true,
   "pending_placeholders": false,
-  "screenshots": 30
+  "screenshots": 31
 }

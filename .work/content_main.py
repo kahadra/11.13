@@ -301,11 +301,16 @@ add("결과 ① 경쟁이 돌아왔는가", "04 · Current Run", 40,
               [("이전 환경 (협력형 점수)", AMBER, [OLD["games_solved"] / OLD["games"], old_last, old_acc_rate]),
                ("현재 (승자 독식)", BLUE, [CUR["games_solved"] / n_games, cur_last, cur_acc_rate])]),
          '<div class="stack-gap">'
-         + box("먼저 도전한다", f"마지막 사이클에 몰린 도전 {pct(old_last)} → <b>{pct(cur_last)}</b><br>추리 도전 {OLD['accusations']} → {CUR['accusations']}회", "blue")
-         + box("대신 더 자주 틀린다", f"정답률 {pct(old_acc_rate)} → <b>{pct(cur_acc_rate)}</b><br>정답자가 나온 판 {OLD['games_solved']}/{OLD['games']} → {CUR['games_solved']}/{n_games}", "amber")
+         + box("도전이 앞당겨졌다", f"마지막 사이클에 몰린 도전 {pct(old_last)} → <b>{pct(cur_last)}</b> · 추리 도전 {OLD['accusations']} → {CUR['accusations']}회", "blue")
+         + box("왜? 틀려도 손해가 없었다", f"남이 맞히면 생존자 0점, 틀리면 미션 점수 −20 → 미션이 20점 이상이면 <b>도전이 손해 없는 선택</b><br>"
+               f"도전 {CUR['accusations']}회 중 <b>{FR['free_acc']}회</b>가 이 상황 · 마지막 사이클 전 도전 {FR['free_acc_early'] + FR['not_free_acc_early']}회 중 {FR['free_acc_early']}회 · "
+               f"{FR['free_acc']}회 중 {FR['free_mentions_mission']}회가 이유에 ‘미션’", "amber")
+         + box("그래서 더 자주 틀린다", f"정답률 {pct(old_acc_rate)} → <b>{pct(cur_acc_rate)}</b> (이런 도전 {FR['free_acc']}회 중 정답 {FR['free_correct']})<br>"
+               f"한 번도 못 이긴 {NOWIN['mbti']}가 오답 {NOWIN['wrong_deaths']}번으로 {NOWIN['death_points']}점, 누적 {NOWIN['rank']}위", "amber")
          + "</div>", cls="chart-grid")
-    + take("승리가 배타적이 되자 ‘먼저 맞히는 이득’이 생겼고, 확신보다 선취를 택하는 도전이 늘었다"),
-    f"마지막 사이클에 몰리던 도전이 {pct(old_last)}에서 {pct(cur_last)}로 줄었습니다. 먼저 맞혀야 이기니 일찍 도전합니다. 대신 정답률은 {pct(old_acc_rate)}에서 {pct(cur_acc_rate)}로 떨어졌습니다.",
+    + take("경쟁은 돌아왔다 — 다만 정답을 먼저 맞히는 경쟁이 아니라 <b>내 점수를 지키는 경쟁</b>: 오답이어도 미션이 남는 규칙에서 틀려도 되는 도전을 정확히 계산했다"),
+    f"도전이 마지막 사이클에 몰리던 비율은 {pct(old_last)}에서 {pct(cur_last)}로 줄었습니다. 이제 남이 맞히면 내 점수가 사라지니 경쟁은 분명히 돌아왔습니다. 다만 그 모습은 정답을 먼저 맞히는 경쟁이 아니었습니다. 남이 맞히면 생존자는 0점인데, 틀려도 미션 점수는 남습니다. "
+    f"도전 {CUR['accusations']}번 중 {FR['free_acc']}번이 이런 상황이었고, {FR['free_mentions_mission']}번은 이유에 미션을 적었습니다. 정답률은 {pct(cur_acc_rate)}로 떨어졌고, 한 번도 못 이기고 {NOWIN['rank']}위에 오른 에이전트도 있습니다.",
     "v9-main-30c · v9-main2-30c-lean 기록 (codex-calls 추리 판단)")
 
 add("결과 ② 협력은 어떤 모습인가", "04 · Current Run", 45,
@@ -393,10 +398,10 @@ add("정리", "05 · Conclusion", 40,
     + "".join(f'<div><span>{i}</span><p>{t}</p></div>' for i, t in enumerate([
         "첫 실패의 원인은 에이전트가 아니라 <b>기획 의도와 구현 사이의 간극</b>이었다",
         "학습하려면 먼저 <b>배울 수 있는 환경</b>이 필요했다 — 그리고 교훈은 <b>피드백의 질</b>을 넘지 못했다 (이유 없는 거절에서 잘못 배움)",
-        "규칙으로 협력을 강요하면 자율성이 사라진다 — 승리를 배타적으로 바꾸자 <b>경쟁은 돌아왔지만 협력의 규범은 남았다</b>",
+        "규칙으로 협력을 강요하면 자율성이 사라진다 — 승리를 배타적으로 바꾸자 <b>경쟁은 돌아왔고</b>(정답보다 내 점수를 지키는 쪽으로), 협력의 규범은 남았다",
         "성격 차이도, 편향도 <b>구현 방식이 먼저 만든다</b> — 인수인계는 아직 숙제",
     ], 1)) + "</div>"
     + take("에이전트를 의도대로 움직이게 하는 것은 모델이 아니라 의도를 옮긴 시스템 설계 — 그리고 그 설계 안에서 에이전트는 여전히 자기 방식으로 움직인다"),
-    "첫 실패는 의도와 구현의 간극 때문이었습니다. 배울 환경을 만들었지만 교훈은 피드백의 질을 넘지 못했고, 협력을 강요하던 규칙을 바꾸자 경쟁은 돌아왔지만 규범은 남았습니다. "
+    "첫 실패는 의도와 구현의 간극 때문이었습니다. 배울 환경을 만들었지만 교훈은 피드백의 질을 넘지 못했고, 협력을 강요하던 점수를 바꾸자 경쟁은 돌아왔지만 정답보다 내 점수를 지키는 쪽이었고, 협력의 규범은 남았습니다. "
     "성격 차이도 편향도 구현이 먼저 만듭니다. 에이전트를 의도대로 움직이게 하는 건 시스템 설계였고, 그 안에서도 에이전트는 자기 방식으로 움직였습니다. 감사합니다.",
     "발표 요약")

@@ -239,6 +239,63 @@ def talk_effect(camp):
     return dict(C)
 
 
+def accusation_incentive(camp):
+    """Why accusations moved earlier under winner-take-all (A39): at each deduction decision, compare the score of a wrong
+    accusation (mission points kept, -20) with what surviving gives (0 if someone else wins, -10 if unsolved). 'free' =
+    a wrong accusation is no worse than surviving. Outcome: an accuser who is in the winners list was right."""
+    import re
+    db = sqlite3.connect(f'file:{camp / "pool.sqlite3"}?mode=ro', uri=True)
+    C = collections.Counter()
+    for a in completed(camp):
+        s = load(a['summary_file'])
+        wins = {w['character_id'] if isinstance(w, dict) else None for w in s.get('winners') or []}
+        for x, u, r in calls(Path(a['full_record_file']).parent):
+            if u.get('phase') != 'deduction':
+                continue
+            am = u.get('accuse_math') or {}
+            sw, so, su = am.get('score_if_wrong'), am.get('score_if_someone_else_wins'), am.get('score_if_unsolved_and_alive')
+            if sw is None or so is None:
+                continue
+            free = sw >= max(so, su if su is not None else -999)
+            acc = r.get('decision') == 'accuse' or (r.get('action') or {}).get('type') == 'accuse'
+            early = u.get('cycle') != 30
+            tag = 'free' if free else 'not_free'
+            C[f'{tag}_decisions'] += 1
+            if early:
+                C[f'{tag}_early_decisions'] += 1
+            if acc:
+                C[f'{tag}_acc'] += 1
+                C[f'{tag}_acc_early'] += early
+                C[f'{tag}_correct'] += ((u.get('me') or {}).get('character_id') in wins)
+                text = (r.get('consideration') or '') + json.dumps(r.get('deduction_math') or {}, ensure_ascii=False)
+                C[f'{tag}_mentions_mission'] += bool(re.search(r'미션|임무', text))
+    # final standings: best rank reached by an agent who never won, and its wrong-death points
+    rows = []
+    for r in db.execute('select * from agents'):
+        d = json.loads(r[1])
+        if d.get('pool_role') != 'player':
+            continue
+        H = [h for h in d['history'] if h.get('resolution') != 'operator_stopped']
+        rows.append({'mbti': d.get('fixed_mbti'), 'cum': d.get('cumulative_score'), 'wins': sum(h['outcome'] == 'win' for h in H),
+                     'wrong_deaths': sum(not h['survived'] for h in H),
+                     'death_points': sum(h['final_score'] for h in H if not h['survived']),
+                     'win_points': sum(h['final_score'] for h in H if h['outcome'] == 'win'),
+                     'alive_points': sum(h['final_score'] for h in H if h['survived'] and h['outcome'] != 'win'),
+                     'games': len(H), 'gifts_in': sum(x['points'] for x in d.get('shares_received') or []),
+                     'gifts_out': sum(x['points'] for x in d.get('shares_given') or [])})
+    rows = [x for x in rows if x['cum'] is not None]  # cumulative score exists from A40 on
+    rows.sort(key=lambda x: -x['cum'])
+    for i, x in enumerate(rows, 1):
+        x['rank'] = i
+    nowin = [x for x in rows if x['wins'] == 0]
+    out = dict(C)
+    out['standings'] = rows
+    out['best_no_win'] = nowin[0] if nowin else None
+    out['death_points_total'] = sum(x['death_points'] for x in rows)
+    out['win_points_total'] = sum(x['win_points'] for x in rows)
+    return out
+
+
 def gm_memory(camp):
     d = load(camp / 'agent-memory' / 'gm_society_gm.json')
     recent = sorted((d.get('model_calls') or [])[-300:])
@@ -281,9 +338,9 @@ def main():
                          'end_cycles': '12–15', 'deadline_cycles': 120, 'time_limit_s': 3600,
                          'combos_agent_mean': 536, 'combos_pooled': 94, 'source': '작업_변천사.md §2'},
         'v8': {'rows': load(V8_CACHE)} if V8_CACHE.exists() else {},
-        'v9_old': {'rows': old, 'summary': summarize(old), 'affinity': affinity(OLD)},
+        'v9_old': {'rows': old, 'summary': summarize(old), 'affinity': affinity(OLD), 'incentive': accusation_incentive(OLD)},
         'current': {'rows': cur, 'summary': summarize(cur), 'affinity': affinity(CUR), 'learning': learning(CUR),
-                    'trend': learning_trend(CUR), 'refusals': refusal_causes(CUR), 'talk_effect': talk_effect(CUR),
+                    'trend': learning_trend(CUR), 'refusals': refusal_causes(CUR), 'talk_effect': talk_effect(CUR), 'incentive': accusation_incentive(CUR),
                     'gm': gm_memory(CUR)},
     }
     v8 = out['v8'].get('rows') or []

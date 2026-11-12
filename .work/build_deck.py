@@ -33,6 +33,8 @@ CUR, CA, CL, GM = R["current"]["summary"], R["current"]["affinity"], R["current"
 ROWS = R["current"]["rows"]
 TR = R["current"]["trend"]
 TE = R["current"]["talk_effect"]
+FR = R["current"]["incentive"]
+NOWIN = FR["best_no_win"]
 TARGET_GAMES = 16
 
 
@@ -176,6 +178,17 @@ app("부록 · 현재 실험 판별 결과",
     "현재 실험의 판별 결과입니다. 남은 조합은 엔진이 판 끝에 각자의 단서로 계산한 값이고, 에이전트에게는 보이지 않습니다.",
     "v9-main2-30c-lean · results.json")
 
+ST = FR["standings"]
+app("부록 · 최종 누적 순위",
+    table(["순위", "유형", "누적 점수", "판", "승리 (승점)", "오답 사망 (그 판 점수)", "생존한 판 점수", "받은 / 준 분배"],
+          [[x["rank"], x["mbti"], f'<b>{x["cum"]}</b>', x["games"], f'{x["wins"]} ({x["win_points"]})', f'{x["wrong_deaths"]} ({x["death_points"]})',
+            x["alive_points"], f'{x["gifts_in"]} / {x["gifts_out"]}'] for x in ST],
+          "compact-table small-rows center rank-table")
+    + note(f"누적 = 판 점수 합 + 받은 분배 − 준 분배. 오답 사망으로 얻은 점수 {FR['death_points_total']}점 · 승리 점수 {FR['win_points_total']}점 · "
+           f"분배 합 {sum(x['gifts_in'] for x in ST)}점. 판 점수는 승자 독식(정답 100/70/50/30 + 미션), 오답은 미션 − 20, 남이 맞히면 생존자 0, 미해결 −10."),
+    f"16판이 끝난 최종 누적 순위입니다. 1위 {ST[0]['mbti']}와 2위 {ST[1]['mbti']}는 {ST[0]['cum'] - ST[1]['cum']}점 차이입니다. 한 번도 이기지 못한 {NOWIN['mbti']}가 오답 사망 점수만으로 {NOWIN['rank']}위에 올랐습니다.",
+    "v9-main2-30c-lean 풀 DB (cumulative_score, 판별 기록, 판 외 분배 기록)")
+
 app("부록 · 실험 연표와 모델",
     table(["단계", "기간", "모델", "규모", "결과"], [
         ["최초 실험", "11/3–6", "gpt-6-luna", "120사이클(실제 1시간 제한) × 30판", "추리 도전 0"],
@@ -231,6 +244,7 @@ ul.tight{margin:0;padding-left:20px;list-style:disc}ul.tight li{font-size:16.5px
 .vline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:3px solid #c9d3e2;padding-top:10px}
 .vline div{padding:0 12px 0 0;position:relative}.vline div:before{content:'';position:absolute;top:-17px;left:0;width:11px;height:11px;border-radius:50%;background:#172840}
 .vline b{display:block;font-size:14px;color:#0d6f6a}.vline span{font-size:14px;color:#3f4f68;line-height:1.4}
+.rank-table th,.rank-table td{padding:3px 10px!important;font-size:13.5px!important;line-height:1.3!important}
 .jflow{display:grid;grid-template-columns:1fr 1fr 1.15fr;gap:22px;margin-bottom:12px}
 .jcard{position:relative;background:white;border:1px solid var(--line);border-radius:12px;padding:10px 14px;min-height:150px}
 .jcard:not(:last-child):after{content:'→';position:absolute;right:-18px;top:50%;transform:translateY(-50%);color:var(--teal);font-weight:800;font-size:18px}

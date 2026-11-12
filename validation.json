@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-12T06:52:08+00:00",
+  "checked_at": "2026-11-12T08:30:30+00:00",
   "browser": "Microsoft Edge headless (DevTools protocol)",
   "viewport": [
     1280,
@@ -12,7 +12,46 @@
   "transition_buffer_seconds": 60,
   "hard_limit_seconds": 1200,
   "actual_speaking_time": "NOT_MEASURED_REHEARSAL_REQUIRED",
-  "layout_issues": {},
+  "layout_issues": {
+    "27": [
+      [
+        "outside-safe-area",
+        "table.data-table.compact-table.small-rows.center",
+        1224,
+        698
+      ],
+      [
+        "outside-safe-area",
+        "tbody",
+        1223,
+        697
+      ],
+      [
+        "outside-safe-area",
+        "tr",
+        1223,
+        697
+      ],
+      [
+        "outside-safe-area",
+        "td",
+        109,
+        697
+      ],
+      [
+        "outside-safe-area",
+        "td",
+        191,
+        697
+      ],
+      [
+        "outside-safe-area",
+        "td",
+        281,
+        697
+      ]
+    ]
+  },
   "broken_images": [],
   "console_errors": [],
   "interaction_checks": {

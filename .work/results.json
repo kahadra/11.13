@@ -1420,20 +1420,99 @@
     "interaction_with_insights": 307,
     "talk_lines": 693,
     "talk_intents": 295
+   },
+   {
+    "game": 15,
+    "seed": 15,
+    "cycles": 29,
+    "minutes": 80,
+    "resolution": "winner",
+    "winners": 1,
+    "deaths": 5,
+    "accusations": 6,
+    "acc_last_cycle": 0,
+    "acc_cycles": [
+     8,
+     18,
+     25,
+     28,
+     29,
+     29
+    ],
+    "trades_proposed": 67,
+    "settled": 24,
+    "refused": 43,
+    "deceptions": 0,
+    "shared_points": 5,
+    "share_budget": 130,
+    "share_recipients": 1,
+    "combos_median": 123.0,
+    "combos_min": 36,
+    "model_calls": 1673,
+    "model_fallbacks": 0,
+    "player_fallbacks": 0,
+    "outages": 0,
+    "outage_paused_s": 0.0,
+    "gm_retries": 1,
+    "interaction_prompts": 300,
+    "interaction_with_insights": 300,
+    "talk_lines": 636,
+    "talk_intents": 258
+   },
+   {
+    "game": 16,
+    "seed": 16,
+    "cycles": 30,
+    "minutes": 86,
+    "resolution": "winner",
+    "winners": 1,
+    "deaths": 8,
+    "accusations": 9,
+    "acc_last_cycle": 3,
+    "acc_cycles": [
+     19,
+     25,
+     26,
+     27,
+     28,
+     29,
+     30,
+     30,
+     30
+    ],
+    "trades_proposed": 73,
+    "settled": 25,
+    "refused": 48,
+    "deceptions": 0,
+    "shared_points": 4,
+    "share_budget": 120,
+    "share_recipients": 1,
+    "combos_median": 177.0,
+    "combos_min": 20,
+    "model_calls": 1855,
+    "model_fallbacks": 0,
+    "player_fallbacks": 0,
+    "outages": 0,
+    "outage_paused_s": 0.0,
+    "gm_retries": 0,
+    "interaction_prompts": 326,
+    "interaction_with_insights": 326,
+    "talk_lines": 714,
+    "talk_intents": 298
    }
   ],
   "summary": {
-   "games": 14,
-   "games_solved": 8,
-   "winners": 9,
-   "accusations": 100,
-   "correct": 9,
-   "acc_last_cycle": 35,
-   "settled": 378,
-   "refused": 536,
+   "games": 16,
+   "games_solved": 10,
+   "winners": 11,
+   "accusations": 115,
+   "correct": 11,
+   "acc_last_cycle": 38,
+   "settled": 427,
+   "refused": 627,
    "deceptions": 0,
-   "shared_points": 100,
-   "share_budget": 1030,
+   "shared_points": 109,
+   "share_budget": 1280,
    "minutes_median": 72.0,
    "solve_cycles": [
     29,
@@ -1443,20 +1522,22 @@
     28,
     30,
     30,
-    28
+    28,
+    29,
+    30
    ],
    "model_fallbacks": 14,
-   "model_calls": 23932,
+   "model_calls": 27460,
    "outages": 3,
-   "talk_lines": 9115
+   "talk_lines": 10465
   },
   "affinity": {
-   "up": 5828,
-   "down": 90,
-   "zero": 6640,
+   "up": 5962,
+   "down": 99,
+   "zero": 8160,
    "stored_n": 240,
-   "stored_mean": 98.0,
-   "stored_at_100": 205
+   "stored_mean": 98.4,
+   "stored_at_100": 211
   },
   "learning": {
    "agents": 16,
@@ -1551,37 +1632,47 @@
      "game": 14,
      "refused": 39,
      "repeated": 6
+    },
+    {
+     "game": 15,
+     "refused": 43,
+     "repeated": 11
+    },
+    {
+     "game": 16,
+     "refused": 48,
+     "repeated": 7
     }
    ],
-   "agents_with_refusal_rule": 12,
-   "plan_checks": 150,
-   "checks_admitting_repeat": 31,
+   "agents_with_refusal_rule": 13,
+   "plan_checks": 160,
+   "checks_admitting_repeat": 34,
    "quote": {
-    "plan": "다음 판도 교류를 택한다. 확인된 단서를 주고받은 거래가 실제로 부족한 유형을 채웠으므로, 초반부터 여러 상대의 필요를 묻고 거절되면 조건이나 상대를 즉석에서 바꾸겠다. 이번 판 초중반에 새 단서 없는 질문을 같은 상대에게 반복하고 빈 곳도 여러 번 탐색했으니, 질문이 헛돌면 다른 정보",
-    "check": "교류로 거래 10건을 성사시키고 무리한 고발은 피했지만, 거절된 제안을 반복하고 빈 곳 탐색과 후반의 같은 상대에 대한 헛질문을 막지 못해 계획을 일부만 이행했다. 직전 회고를 쓴 판보다 최종 조합은 80개에서 42개로 줄고 확실 단서는 15개에서 16개, 성사 거래는 7건에서 10건으로 늘었지만 점수는"
+    "plan": "다음 판도 교류를 택한다. 이번에 유형을 맞춘 교환 6건이 성사된 경험을 살려 초반에 탐색·질문·임무 점검 순서를 적고, 소규모 자리에서 필요한 단서와 교환 조건을 확인하며 약속을 지키겠다. 6·16사이클처럼 새 단서 없는 탐색을 피하도록 이동 전 잔여량을 확인하고, 7~8사이클처럼 교",
+    "check": "초반 탐색과 유형별 교류, 고발 보류는 실천했지만 5~8사이클과 22·24·27~28사이클에 빈 탐색을 했고, 반복 거절과 무성과 질문 뒤 전환도 늦었다. 직전 계획을 쓴 판보다 최종 조합은 108개에서 240개로 늘고 확실 단서는 12개에서 7개, 성사 거래는 6건에서 4건, 점수는 40점에서 0점으로"
    }
   },
   "refusals": {
-   "refuse_total": 536,
-   "refuse_no_action_left": 419,
-   "refused_worded": 117,
-   "refused_silent": 419,
-   "silent_recipient_proposed": 339,
-   "silent_crossed": 167,
-   "silent_recipient_accepted_other": 79,
-   "repeat_after_silent": 68,
-   "repeat_after_worded": 5,
-   "identical_repeats": 73,
-   "repeat_prior_refusal_visible": 68,
+   "refuse_total": 627,
+   "refuse_no_action_left": 487,
+   "refused_worded": 140,
+   "refused_silent": 487,
+   "silent_recipient_proposed": 399,
+   "silent_crossed": 196,
+   "silent_recipient_accepted_other": 87,
+   "repeat_after_silent": 79,
+   "repeat_after_worded": 6,
+   "identical_repeats": 85,
+   "repeat_prior_refusal_visible": 80,
    "repeat_prior_refusal_hidden": 5
   },
   "talk_effect": {
-   "talk": 4722,
-   "talk_proposed": 605,
-   "talk_settled": 256,
-   "no_talk": 3481,
-   "no_talk_proposed": 225,
-   "no_talk_settled": 122
+   "talk": 5293,
+   "talk_proposed": 687,
+   "talk_settled": 291,
+   "no_talk": 4035,
+   "no_talk_proposed": 268,
+   "no_talk_settled": 136
   },
   "gm": {
    "playbook": {
@@ -1603,10 +1694,10 @@
     },
     "model_timeout": {
      "retry": {
-      "tries": 2,
-      "resolved": 2,
-      "seconds": 13.600000000000001,
-      "a": 1.81,
+      "tries": 3,
+      "resolved": 3,
+      "seconds": 21.6,
+      "a": 2.629,
       "b": 0.0
      },
      "stand_in": {
@@ -1614,13 +1705,13 @@
       "resolved": 0,
       "seconds": 0.0,
       "a": 0.0,
-      "b": 0.9
+      "b": 0.81
      }
     }
    },
    "model_calls_seen": 300,
-   "p90_seconds": 13.7,
-   "learned_deadline_s": 60,
+   "p90_seconds": 15.8,
+   "learned_deadline_s": 63.2,
    "escalations": 1
   }
  },

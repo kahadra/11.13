@@ -331,8 +331,8 @@ add("결과 ③ 학습: 어디서 보고, 왜 행동이 안 바뀌었나", "04 �
     grid(table(["어디서 보나", "본 것", "판정"], [
         ["결과<br><small>정답 · 남은 조합</small>", f"정답자 나온 판 앞 {half}판 {sum(r['winners'] > 0 for r in first)} · 뒤 {n_games - half}판 {sum(r['winners'] > 0 for r in second)}<br>"
          "<small>판마다 사건이 달라 난이도와 섞인다</small>", '<span class="tag part">판단 불가</span>'],
-        ["자기 진단<br><small>회고 · 경험 규칙</small>", f"회고 {R1_REFL}회 중 지난 계획 점검 {R1_PLAN}회 · 규칙은 에이전트마다 다르고 겹침 {CL['shared_texts']}<br>"
-         f"<small>‘거절되면 조건이나 상대를 바꾼다’ 규칙 {TR['agents_with_refusal_rule']}/16명 · 회고 {TR['plan_checks']}회 중 {TR['checks_admitting_repeat']}회가 ‘거절 반복’을 자책</small>", '<span class="tag ok">학습됨</span>'],
+        ["자기 진단<br><small>회고 · 경험 규칙</small>", f"다음 판에서 지난 계획 점검 {TR['plan_checks']}회 · 규칙은 에이전트마다 다르고 겹침 {CL['shared_texts']}<br>"
+         f"<small>‘거절되면 조건이나 상대를 바꾼다’ 규칙 {TR['agents_with_refusal_rule']}/16명 · 점검 {TR['plan_checks']}회 중 {TR['checks_admitting_repeat']}회가 ‘거절 반복’을 자책</small>", '<span class="tag ok">학습됨</span>'],
         ["행동<br><small>거절 뒤 같은 요청</small>", f"앞 {_h}판 {pct(_rate(_tr[:_h]))} → 뒤 {len(_tr) - _h}판 {pct(_rate(_tr[_h:]))}<br>"
          f"<small>내놓는 것까지 같은 반복 {RF['identical_repeats']}/{RF['refuse_total']}건</small>", '<span class="tag bad">변화 없음</span>']], "compact-table small-rows"),
          '<div class="why-list"><h3>왜 행동이 안 바뀌었나 — 차례로 확인</h3>'
@@ -350,17 +350,17 @@ add("결과 ④ 성격: 예측, 결과, 구현이 만든 편향", "04 · Current
         ["T / F", "T가 더 압박한다", f"심문·협박 {T_PRESS}% / {F_PRESS}% {status('구현')}"],
         ["J / P", "P가 더 흥정한다", f"역제안 {J_COUNTER}% / {P_COUNTER}% {status('구현')}"],
         ["E / I", "E가 더 어울린다", f"담화 의향 {E_INTENT}% / {I_INTENT}% {status('구현')}"],
-        ["S / N", "N이 확률을 더 과감히", f"균등 대비 {U1_UNIFORM:.2f} (거의 같음) {status('부분')}"],
-        ["J", "거절 뒤 더 크게 반응", "J = P → <b>예측이 틀림</b>"]], "compact-table small-rows"),
+        ["S / N", "N이 확률을 더 과감히", f"추리 도전 때 자기 확률 S {S_CHANCE:.2f} / N {N_CHANCE:.2f} (1=균등) {status('구현')}"],
+        ["J", "거절 뒤 더 크게 반응", f"친밀도 변화 J {J_REF:.2f} / P {P_REF:.2f} → <b>차이 작음</b> {status('부분')}"]], "compact-table small-rows"),
          table(["구현 방식", "생긴 편향", "바꾼 것"], [
              ["성격별 수치 보정", "성격이 능력치", "능력은 직업에만"],
-             ["계산된 균등 확률 제공", "모든 유형이 같은 숫자 (S/N 차이 0)", "제거 → S 1.24 · N 1.34 (점검 2판)"],
+             ["계산된 균등 확률 제공", "모든 유형이 같은 숫자 (S/N 차이 0)", f"제거 → S {S_CHANCE:.2f} · N {N_CHANCE:.2f}"],
              ["‘크게 흔들린다’처럼 결과를 쓴 문구", "성향이 아니라 강요 · 연구자의 예측도 J를 ‘강박’으로 정의", "원인만 서술"],
              ["기만 판정과 −20을 코드가 자동 처리", "들키는 기만만 가능, 판단을 코드가 대신", "남은 과제"],
              ["무리 속 교류율로 E/I 측정", "I의 ‘한 사람에게 짧게’를 못 봄", "소수 상황 지표 추가"]], "compact-table small-rows"), cls="wide-left")
     + take("성격 차이는 구현 방식이 먼저 만든다 — 숫자를 주면 같아지고, 결과를 쓰면 강요가 되고, 지표가 못 보면 없는 것처럼 보인다"),
-    "성격은 T와 F, J와 P, E와 I가 예측대로 갈렸지만, 오른쪽처럼 구현 방식이 편향을 만들었습니다. 계산된 확률을 주자 모든 유형이 같은 숫자를 썼고, 빼자 갈렸습니다. "
-    "J가 거절에 크게 반응한다는 예측은 J를 강박으로 정의한 우리의 선입견이었습니다. 기만 판정을 코드가 대신하는 것도 남은 편향입니다.",
+    "성격은 네 축 모두 예측한 방향으로 갈렸지만, 오른쪽처럼 구현 방식이 편향을 만들었습니다. 계산된 확률을 주자 모든 유형이 같은 숫자를 썼고, 빼자 갈렸습니다. "
+    "J가 거절에 크게 반응한다는 예측은 차이가 작았고, 그 예측 자체가 J를 강박으로 정의한 우리의 선입견이었습니다. 기만 판정을 코드가 대신하는 것도 남은 편향입니다.",
     "type_report · 성격 16유형 예측 §4·§7 · 성격 정의 점검")
 
 add("결과 ⑤ 인수인계", "04 · Current Run", 30,

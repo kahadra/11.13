@@ -1,14 +1,14 @@
-games 14 · decisions 13084
-M1 cards/seek in decision prompts: seek 7278/13084 (56%)
-M2 claims about the case in decision prompts (B45): 7869/13084 (60%)
-M3 notes: ops applied 577, refused 0
-R1 reflections 140, with plan_check 124 (games 2+ should check the last plan)
-R2 ExpeL insight ops 563; insights per agent [3, 4, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 7, 7]
-R3 T agents' chosen path in their plans (TB1 11.5): {'교류': 56, '단기 실리': 11}
-U1 deduction_math checks {'ok': 4405}; decision follows own higher EV 4398/4405; own chance x combinations (1 = uniform) median 1.1515
-A1 affinity: impressions 0, stored scores n=240 mean 98.0 sd 6.3
-A2 relationship reports recorded by the GM: 4592
-X1 same request to the same partner after a refusal: 96/536 refusals (v8: 45/312 requests)
-N1 after finishing all missions (score incentive to let others solve): answers giving a definite clue 0/0 vs others 463/1010; trade accepts 0/0 vs others 378/514; last-cycle pass assumptions naming another solver 32/32
-G1 GM incidents {'no_action': 1}; playbook {"no_action": {"wait": {"tries": 1, "resolved": 0, "seconds": 0.0, "a": 0.0, "b": 0.9}, "resync": {"tries": 1, "resolved": 0, "seconds": 0.0, "a": 0.0, "b": 1.0}}, "model_timeout": {"retry": {"tries": 2, "resolved": 2, "seconds": 13.600000000000001, "a": 1.81, "b": 0.0}, "stand_in": {"tries": 1, "re
+games 16 · decisions 15000
+M1 cards/seek in decision prompts: seek 8342/15000 (56%)
+M2 claims about the case in decision prompts (B45): 9023/15000 (60%)
+M3 notes: ops applied 681, refused 0
+R1 reflections 152, with plan_check 136 (games 2+ should check the last plan)
+R2 ExpeL insight ops 623; insights per agent [3, 4, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 7, 7]
+R3 T agents' chosen path in their plans (TB1 11.5): {'교류': 60, '단기 실리': 13}
+U1 deduction_math checks {'ok': 5050}; decision follows own higher EV 5043/5050; own chance x combinations (1 = uniform) median 1.1423999999999999
+A1 affinity: impressions 0, stored scores n=240 mean 98.4 sd 5.8
+A2 relationship reports recorded by the GM: 4875
+X1 same request to the same partner after a refusal: 114/627 refusals (v8: 45/312 requests)
+N1 after finishing all missions (score incentive to let others solve): answers giving a definite clue 0/0 vs others 558/1178; trade accepts 0/0 vs others 427/584; last-cycle pass assumptions naming another solver 34/35
+G1 GM incidents {'no_action': 1}; playbook {"no_action": {"wait": {"tries": 1, "resolved": 0, "seconds": 0.0, "a": 0.0, "b": 0.9}, "resync": {"tries": 1, "resolved": 0, "seconds": 0.0, "a": 0.0, "b": 1.0}}, "model_timeout": {"retry": {"tries": 3, "resolved": 3, "seconds": 21.6, "a": 2.629, "b": 0.0}, "stand_in": {"tries": 1, "resolved": 0, "
 G2 regression traces: 10 records

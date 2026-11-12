@@ -1,63 +1,63 @@
-agent-games 168 over 16 types
+agent-games 192 over 16 types
 
 == E vs I
-  E: questions 811/2199 (37%), explore 861/2199 (39%), trade 478/2199 (22%), prepare 47/2199 (2%)
-     social when 1-2 others 357/706 (51%), with 3+ others 932/1178 (79%); message length 77.995, case talk in messages 1159/1289 (90%)
-  I: questions 607/2065 (29%), explore 898/2065 (43%), trade 436/2065 (21%), prepare 92/2065 (4%)
-     social when 1-2 others 468/812 (58%), with 3+ others 575/734 (78%); message length 77.062, case talk in messages 927/1043 (89%)
+  E: questions 920/2471 (37%), explore 956/2471 (39%), trade 539/2471 (22%), prepare 52/2471 (2%)
+     social when 1-2 others 433/817 (53%), with 3+ others 1026/1294 (79%); message length 78.48, case talk in messages 1322/1459 (91%)
+  I: questions 727/2419 (30%), explore 1032/2419 (43%), trade 516/2419 (21%), prepare 109/2419 (5%)
+     social when 1-2 others 576/977 (59%), with 3+ others 667/854 (78%); message length 77.266, case talk in messages 1107/1243 (89%)
 
 == S vs N
-  S: questions 706/2157 (33%), explore 907/2157 (42%), trade 471/2157 (22%), prepare 61/2157 (3%)
-     reaction after being deceived: mean delta None (n=0); all reactions mean delta 0.908 (n=6173)
-     accusations 48 at combos [9, 12, 18, 24, 29, 30, 32, 37, 50, 56, 59, 62, 66, 75, 77, 80, 82, 92, 99, 100, 104, 107, 112, 114, 128, 135, 138, 147, 150, 155, 159, 200, 202, 215, 215, 220, 236, 240, 255, 259, 270, 294, 300, 310, 455, 462, 551, 560]; own chance x combos (1 = uniform) mean 1.245
-  N: questions 712/2107 (34%), explore 852/2107 (40%), trade 443/2107 (21%), prepare 78/2107 (4%)
-     reaction after being deceived: mean delta None (n=0); all reactions mean delta 0.917 (n=6385)
-     accusations 52 at combos [9, 11, 17, 18, 18, 21, 23, 30, 32, 37, 39, 41, 45, 47, 53, 54, 54, 57, 60, 69, 73, 80, 86, 87, 105, 112, 112, 112, 113, 125, 138, 140, 168, 174, 180, 192, 192, 195, 196, 200, 210, 210, 210, 245, 249, 255, 255, 281, 284, 385, 420, 532]; own chance x combos (1 = uniform) mean 1.509
+  S: questions 788/2419 (33%), explore 1014/2419 (42%), trade 533/2419 (22%), prepare 69/2419 (3%)
+     reaction after being deceived: mean delta None (n=0); all reactions mean delta 0.847 (n=6784)
+     accusations 55 at combos [9, 12, 18, 24, 29, 30, 32, 37, 44, 50, 56, 57, 59, 62, 66, 75, 77, 80, 82, 87, 92, 99, 100, 103, 104, 107, 112, 114, 128, 133, 135, 138, 147, 150, 155, 159, 200, 202, 215, 215, 220, 236, 240, 255, 259, 270, 294, 300, 310, 315, 378, 455, 462, 551, 560]; own chance x combos (1 = uniform) mean 1.253
+  N: questions 859/2471 (35%), explore 974/2471 (39%), trade 522/2471 (21%), prepare 92/2471 (4%)
+     reaction after being deceived: mean delta None (n=0); all reactions mean delta 0.802 (n=7440)
+     accusations 60 at combos [9, 11, 17, 18, 18, 21, 23, 27, 30, 32, 32, 37, 39, 41, 44, 45, 47, 50, 53, 54, 54, 57, 60, 69, 73, 80, 86, 87, 105, 112, 112, 112, 113, 125, 138, 140, 152, 160, 168, 172, 174, 180, 192, 192, 195, 196, 199, 200, 210, 210, 210, 245, 249, 255, 255, 281, 284, 385, 420, 532]; own chance x combos (1 = uniform) mean 1.478
 
 == T vs F
-  T: questions 717/2076 (35%), explore 829/2076 (40%), trade 451/2076 (22%), prepare 66/2076 (3%)
-     persuade 76/717 (11%), interrogate+threaten 73/717 (10%), deception 0/374 (0%)
-     reaction |delta| after deeds 1.148 (n=1503), after words only 0.858 (n=4643); accept with fitting clue: affinity>=60 163/219 (74%), 40-60 32/45 (71%), <=40 n/a
-  F: questions 701/2188 (32%), explore 930/2188 (43%), trade 463/2188 (21%), prepare 73/2188 (3%)
-     persuade 91/701 (13%), interrogate+threaten 0/701 (0%), deception 0/382 (0%)
-     reaction |delta| after deeds 1.071 (n=1483), after words only 0.908 (n=4929); accept with fitting clue: affinity>=60 161/222 (73%), 40-60 22/28 (79%), <=40 n/a
+  T: questions 850/2450 (35%), explore 971/2450 (40%), trade 535/2450 (22%), prepare 78/2450 (3%)
+     persuade 91/850 (11%), interrogate+threaten 85/850 (10%), deception 0/436 (0%)
+     reaction |delta| after deeds 0.999 (n=1778), after words only 0.767 (n=5374); accept with fitting clue: affinity>=60 200/265 (75%), 40-60 32/45 (71%), <=40 n/a
+  F: questions 797/2440 (33%), explore 1017/2440 (42%), trade 520/2440 (21%), prepare 83/2440 (3%)
+     persuade 104/797 (13%), interrogate+threaten 0/797 (0%), deception 0/418 (0%)
+     reaction |delta| after deeds 0.963 (n=1671), after words only 0.843 (n=5401); accept with fitting clue: affinity>=60 173/246 (70%), 40-60 22/28 (79%), <=40 n/a
 
 == J vs P
-  J: questions 663/2194 (30%), explore 951/2194 (43%), trade 476/2194 (22%), prepare 86/2194 (4%)
-     reaction |delta| after deeds 1.119 (n=1465), words 0.895 (n=4828); delta after a refused trade 0.471 (n=467)
-     incoming trades: counter 22/263 (8%), accept 182/263 (69%), refuse 59/263 (22%)
-  P: questions 755/2070 (36%), explore 808/2070 (39%), trade 438/2070 (21%), prepare 53/2070 (3%)
-     reaction |delta| after deeds 1.101 (n=1521), words 0.873 (n=4744); delta after a refused trade 0.38 (n=437)
-     incoming trades: counter 49/303 (16%), accept 196/303 (65%), refuse 58/303 (19%)
+  J: questions 778/2510 (31%), explore 1060/2510 (42%), trade 553/2510 (22%), prepare 99/2510 (4%)
+     reaction |delta| after deeds 0.981 (n=1710), words 0.822 (n=5393); delta after a refused trade 0.407 (n=555)
+     incoming trades: counter 22/300 (7%), accept 207/300 (69%), refuse 71/300 (24%)
+  P: questions 869/2380 (37%), explore 928/2380 (39%), trade 502/2380 (21%), prepare 62/2380 (3%)
+     reaction |delta| after deeds 0.982 (n=1739), words 0.789 (n=5382); delta after a refused trade 0.337 (n=501)
+     incoming trades: counter 52/341 (15%), accept 220/341 (65%), refuse 69/341 (20%)
 
 == talk rooms (B54), last-cycle accusations, post-game sharing (B55)
-  E: talk intent 2283/2286 (100%), lines 5794, mean length 109.488, case talk 4805/5794 (83%), leave 0/5794 (0%), leave in rooms of 4+ 0/3478 (0%); accusations at the last cycle 19/43 (44%); shared 3 times, 40 points
-  I: talk intent 1519/2114 (72%), lines 3321, mean length 105.459, case talk 2866/3321 (86%), leave 0/3321 (0%), leave in rooms of 4+ 0/1239 (0%); accusations at the last cycle 16/57 (28%); shared 5 times, 60 points
-  S: talk intent 1857/2221 (84%), lines 4507, mean length 106.436, case talk 3692/4507 (82%), leave 0/4507 (0%), leave in rooms of 4+ 0/2299 (0%); accusations at the last cycle 17/48 (35%); shared 5 times, 60 points
-  N: talk intent 1945/2179 (89%), lines 4608, mean length 109.569, case talk 3979/4608 (86%), leave 0/4608 (0%), leave in rooms of 4+ 0/2418 (0%); accusations at the last cycle 18/52 (35%); shared 3 times, 40 points
-  T: talk intent 1797/2146 (84%), lines 4401, mean length 108.896, case talk 3742/4401 (85%), leave 0/4401 (0%), leave in rooms of 4+ 0/2301 (0%); accusations at the last cycle 17/46 (37%); shared 4 times, 50 points
-  F: talk intent 2005/2254 (89%), lines 4714, mean length 107.202, case talk 3929/4714 (83%), leave 0/4714 (0%), leave in rooms of 4+ 0/2416 (0%); accusations at the last cycle 18/54 (33%); shared 4 times, 50 points
-  J: talk intent 1891/2257 (84%), lines 4489, mean length 109.867, case talk 3793/4489 (84%), leave 0/4489 (0%), leave in rooms of 4+ 0/2323 (0%); accusations at the last cycle 21/46 (46%); shared 5 times, 70 points
-  P: talk intent 1911/2143 (89%), lines 4626, mean length 106.227, case talk 3878/4626 (84%), leave 0/4626 (0%), leave in rooms of 4+ 0/2394 (0%); accusations at the last cycle 14/54 (26%); shared 3 times, 30 points
+  E: talk intent 2562/2565 (100%), lines 6484, mean length 109.728, case talk 5440/6484 (84%), leave 0/6484 (0%), leave in rooms of 4+ 0/3769 (0%); accusations at the last cycle 20/52 (38%); shared 5 times, 49 points
+  I: talk intent 1796/2480 (72%), lines 3981, mean length 105.893, case talk 3480/3981 (87%), leave 0/3981 (0%), leave in rooms of 4+ 0/1452 (0%); accusations at the last cycle 18/63 (29%); shared 5 times, 60 points
+  S: talk intent 2071/2492 (83%), lines 5008, mean length 106.657, case talk 4151/5008 (83%), leave 0/5008 (0%), leave in rooms of 4+ 0/2473 (0%); accusations at the last cycle 17/55 (31%); shared 5 times, 60 points
+  N: talk intent 2287/2553 (90%), lines 5457, mean length 109.749, case talk 4769/5457 (87%), leave 0/5457 (0%), leave in rooms of 4+ 0/2748 (0%); accusations at the last cycle 21/60 (35%); shared 5 times, 49 points
+  T: talk intent 2117/2536 (83%), lines 5196, mean length 109.121, case talk 4488/5196 (86%), leave 0/5196 (0%), leave in rooms of 4+ 0/2613 (0%); accusations at the last cycle 19/55 (35%); shared 5 times, 55 points
+  F: talk intent 2241/2509 (89%), lines 5269, mean length 107.429, case talk 4432/5269 (84%), leave 0/5269 (0%), leave in rooms of 4+ 0/2608 (0%); accusations at the last cycle 19/60 (32%); shared 5 times, 54 points
+  J: talk intent 2168/2584 (84%), lines 5152, mean length 110.156, case talk 4411/5152 (86%), leave 0/5152 (0%), leave in rooms of 4+ 0/2545 (0%); accusations at the last cycle 23/55 (42%); shared 6 times, 74 points
+  P: talk intent 2190/2461 (89%), lines 5313, mean length 106.44, case talk 4509/5313 (85%), leave 0/5313 (0%), leave in rooms of 4+ 0/2676 (0%); accusations at the last cycle 15/60 (25%); shared 4 times, 35 points
 
 == affinity and inferred attitudes
-  reactions 12558 (up 5891, down 90, zero 6577); stored affinity n=240 mean 97.983 sd 6.32
-  my estimate of how B sees me vs B's affinity to me: n=240, correlation 0.343
+  reactions 14224 (up 6035, down 99, zero 8090); stored affinity n=240 mean 98.442 sd 5.75
+  my estimate of how B sees me vs B's affinity to me: n=240, correlation 0.409
 
 == 16 types: agent-games | wins/deaths | score mean | question/explore/trade share | reactions | affinity mean
-  ENFJ: 11 | 1/5 | 10.909 | 0.28/0.48/0.22 | 1036 | 100.0
-  ENFP: 11 | 0/9 | 5.455 | 0.43/0.33/0.23 | 1103 | 100.0
-  ENTJ: 10 | 0/2 | -2 | 0.36/0.37/0.23 | 962 | 98.467
-  ENTP: 10 | 0/4 | 2 | 0.42/0.37/0.21 | 1036 | 100.0
-  ESFJ: 10 | 0/4 | -2 | 0.35/0.41/0.23 | 1022 | 100.0
-  ESFP: 11 | 1/3 | 10 | 0.37/0.41/0.18 | 1001 | 98.733
-  ESTJ: 11 | 1/5 | 17.273 | 0.33/0.40/0.23 | 999 | 99.067
-  ESTP: 11 | 0/8 | 7.273 | 0.42/0.36/0.22 | 1105 | 99.6
-  INFJ: 11 | 1/7 | 14.545 | 0.27/0.42/0.20 | 638 | 98.8
-  INFP: 10 | 0/9 | 14 | 0.28/0.46/0.21 | 480 | 95.867
-  INTJ: 10 | 1/7 | 21 | 0.29/0.45/0.20 | 581 | 98.267
-  INTP: 10 | 0/6 | 5 | 0.38/0.36/0.19 | 549 | 100.0
-  ISFJ: 11 | 1/5 | 11.818 | 0.27/0.48/0.22 | 600 | 99.067
-  ISFP: 11 | 1/7 | 20 | 0.30/0.41/0.21 | 532 | 98.333
-  ISTJ: 10 | 1/5 | 19 | 0.27/0.45/0.22 | 455 | 94.6
-  ISTP: 10 | 1/5 | 23 | 0.30/0.43/0.24 | 459 | 86.933
+  ENFJ: 12 | 2/5 | 20 | 0.28/0.48/0.21 | 1107 | 99.8
+  ENFP: 12 | 0/9 | 5 | 0.42/0.33/0.23 | 1187 | 100.0
+  ENTJ: 12 | 0/4 | -0.833 | 0.41/0.32/0.23 | 1163 | 99.267
+  ENTP: 12 | 1/5 | 13.333 | 0.39/0.39/0.21 | 1224 | 99.867
+  ESFJ: 12 | 0/6 | 2.5 | 0.36/0.40/0.23 | 1164 | 100.0
+  ESFP: 12 | 1/4 | 12.5 | 0.38/0.42/0.18 | 1010 | 98.733
+  ESTJ: 12 | 1/5 | 15.833 | 0.33/0.41/0.23 | 1054 | 99.067
+  ESTP: 12 | 0/9 | 7.5 | 0.42/0.35/0.22 | 1207 | 99.733
+  INFJ: 12 | 1/8 | 16.667 | 0.26/0.42/0.20 | 688 | 99.6
+  INFP: 12 | 0/9 | 11.667 | 0.34/0.40/0.21 | 644 | 96.6
+  INTJ: 12 | 1/8 | 17.5 | 0.30/0.43/0.21 | 707 | 99.2
+  INTP: 12 | 0/7 | 3.333 | 0.37/0.38/0.19 | 720 | 99.867
+  ISFJ: 12 | 1/6 | 11.667 | 0.29/0.46/0.23 | 678 | 99.067
+  ISFP: 12 | 1/7 | 18.333 | 0.30/0.42/0.21 | 594 | 98.6
+  ISTJ: 12 | 1/6 | 16.667 | 0.26/0.46/0.22 | 542 | 97.067
+  ISTP: 12 | 1/6 | 20.833 | 0.29/0.43/0.24 | 535 | 88.6
